@@ -35,7 +35,7 @@
       return 0; 
   }
 ```
-## Virtualization the CPU##
+## Virtualizing the CPU
 ```Spin()``` 
 - A function that repeatedly checks the time and returns once it has run for a second.
 - Then it prints out the string that the user passed in on the command line, and repeats, forever.
