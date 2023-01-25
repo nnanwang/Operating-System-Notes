@@ -44,6 +44,19 @@ I/O Devices:
 - SSD is faster than HDD on **random workload**
 - SDD still more costly per capacity unit 60cent/GB vs 5 cent GB
 
+## Interrupts
+- Notify CPU
+- Require hardware support
+- Request flag (IR Flag)
+
+### IR Flag Contents
+- 00: No interrupts;
+- 01: Device3 interrupted
+- 10: Device1 interrupted
+- 11: Device2 interrupted
+
+### Responding to Interrrupts
+<img width="736" alt="image" src="https://user-images.githubusercontent.com/74788199/214686588-0b054644-e077-4da0-be67-ea80f3a5d3f1.png">
 
 
 
