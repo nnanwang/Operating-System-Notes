@@ -45,6 +45,7 @@
 - Status Registers
 - Caches
 
+
 ### RAM: Random Acess Memory
 - Volate RAW (dynamic RAW)
 - Static RAW (SRAW): Read and written "automatically"
@@ -83,6 +84,11 @@ Repeat.*
 - Syntax: ```READ Ri, Diskaddr```
 - Meaning: 
 **HALT
+
+ ```LOAD```
+- Syntax: ```LOAD Ri, @ Addr```
+- Meaning: M[Addr] <- Ri
+
 
 
 
