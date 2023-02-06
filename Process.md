@@ -48,6 +48,42 @@ Thread = “Lightweight Process” (no isolation)
 3. Choose next process to run (Pi = f (Ready Queue, scheduling policy)\
 4. Update CPU state with Pi’s context <img width="460" alt="image" src="https://user-images.githubusercontent.com/74788199/216158849-2206ac39-502d-4800-9b57-8c2cfa2209aa.png">
 
+## Process Creation
+Parent Process Create Child Process
+*Like forming a genealogical tree*
+
+```exit()```
+Process executes last statement and asks OS to kill it
+- Child may output data to waiting parent (WAIT system call)
+- OS deallocates process’ resources
+
+```kill()```
+Parent terminates execution of child
+- child exceeded allocated resources,
+- task assigned to child is no longer required
+- or parent exits (some OS do not allow child to continue if parent exits
+- above can lead to cascading termination
+- (Variety of KILL system calls)
+
+```fork()``` create subprocess
+
+## Message Passing
+### Direct Communication###
+Processes Must “name” Each Other Explicitly
+```
+Send (P, message)
+Receive (Q, message)
+```
+
+### Indirect Communication###
+Message directed anf receive from mailbox
+Each mailbox has a unique ID:
+```
+Send (A, message)
+Receive (A, message)
+```
+
+
 
 
 
