@@ -68,16 +68,16 @@ Parent terminates execution of child
 ```fork()``` create subprocess
 
 ## Message Passing
-### Direct Communication###
+### Direct Communication
 Processes Must “name” Each Other Explicitly
 ```
 Send (P, message)
 Receive (Q, message)
 ```
 
-### Indirect Communication###
-Message directed anf receive from mailbox
-Each mailbox has a unique ID:
+### Indirect Communication
+Message directed anf receive from mailbox. 
+Each mailbox has a unique ID
 ```
 Send (A, message)
 Receive (A, message)
