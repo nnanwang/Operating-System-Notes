@@ -44,4 +44,35 @@ Memory - space-sliced
 Processes are independent.
 Threads can share memory, so we say thread is an abstraction only for CPU
 
+### What's in a Process>
+- Code section
+- Data section -> global variables
+- Stack (stack segment) -> local variables, function parameters
+- Registers
+
+### Process status
+- New
+- Running
+- Waiting 
+- Ready
+- Terminated
+
+### Process and Memory
+1. program has access to all memory <br>
+Memory is partitioned amongst processes
+2. Memory is continuos
+
+### Motivation for threads
+1. Allocate Memory 2. Copy Text
+3. Copy Data <br>
+4. Copy Stack
+5. Copy File Descriptors
+6. Copy Registers
+7. Copy PC, IR, Stack PTR Reg, Status Reg
+
+### User Threads vs Kernel Threads
+- kernel Threads
+
+
+
 
