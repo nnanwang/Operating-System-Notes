@@ -32,8 +32,16 @@ What are the purposses of OS?
 - Abstraction of the CPU aand main memory
 - program in execution
 How is a process an abstraction of the CPU?
-a process allows the operating system to hide the underlying complexity of the CPU and memory hardware and present a simpler 
+A process allows the operating system to hide the underlying complexity of the CPU and memory hardware and present a simpler 
 and more organized view to the programmer. This abstraction makes it easier for developers to write software and for users to
 run multiple programs simultaneously without having to worry about the intricacies of the hardware.
+
+CPU - time-sliced
+Memory - space-sliced
+
+- Multiple processes increase CPU utilization 
+
+Processes are independent.
+Threads can share memory, so we say thread is an abstraction only for CPU
 
 
