@@ -1,5 +1,8 @@
 # Review for Exam 1
 
+## Asembly
+- Mem -> Reg: ```LOAD```
+- Reg -> Mem: ```STORE```
 ## Interrupts
 ### Interrupts notify CPU through raising Interuppt Request flag (IR Flag)
 ### IR Flag Implementations
