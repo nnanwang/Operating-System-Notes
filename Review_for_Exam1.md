@@ -1,8 +1,15 @@
 # Review for Exam 1
 
+
 ## Asembly
+Mem <-> CPU Operations <br>
 - Mem -> Reg: ```LOAD```
 - Reg -> Mem: ```STORE```
+
+Mem <-> Disk Operations (System calls)
+- ```READ Ri```, <disk address>: Disk -> Reg 
+- ```WRITE Ri```, <disk address>: Reg -> Disk
+
 ## Interrupts
 ### Interrupts notify CPU through raising Interuppt Request flag (IR Flag)
 ### IR Flag Implementations
