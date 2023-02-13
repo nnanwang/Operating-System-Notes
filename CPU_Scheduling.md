@@ -65,8 +65,27 @@ Preemptive: Process switch based on timer interrupts
 <img width="721" alt="image" src="https://user-images.githubusercontent.com/74788199/218568169-d2638782-6876-40be-bd1b-5f3574185f43.png">
 
 ### 4. Multilevel Queues, Lottery 
-Preemptive
+Preemptive <br>
+Ready queue is partitioned into separate queues, each with own scheduling
+algorithm
+<img width="712" alt="image" src="https://user-images.githubusercontent.com/74788199/218569455-4ba2b43c-7cb5-4eff-afe7-a49455b42a17.png">
 
+**MFQ Scheduler Must Have Following Parameters:**
+1. Number of queues
+2. Scheduling algorithms for each queue
+3. Scheduling algorithm between queues (or CPU time-slices)
+4. Upgrade process (e.g.: Aging)
+5. Downgrade process
+6. Initial queue determination process
+
+
+**Observe**
+1. Average turnaround time: 3100 / 6 = 516.7
+2. Shorter jobs tend to have shorter turnaround times
+
+## CPU Scheduling Summary
+
+<img width="773" alt="image" src="https://user-images.githubusercontent.com/74788199/218570960-84ad686f-91bf-44ba-a832-bf5cb4e76e12.png">
 
 
 
