@@ -16,7 +16,7 @@ Thread = “Lightweight Process”
 - ```yield() , sleep()``` : Called by child to release own CPU
 
 ### Processes/Threads Not Always Running
-<img width="753" alt="image" src="https://user-images.githubusercontent.com/74788199/218559840-8f0ddccd-f540-4933-9a31-d881cf505ab4.png">
+<img width="750" alt="image" src="https://user-images.githubusercontent.com/74788199/218559840-8f0ddccd-f540-4933-9a31-d881cf505ab4.png">
 
 ### Canceling
 - Any thread can cancel any other thread it knows about
