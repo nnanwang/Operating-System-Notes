@@ -21,3 +21,10 @@ Example - Bounded Buffer<br>
 - Always acquire lock at beginning of procedure, release at end
 - Always hold lock when using a condition variable
 - Always wait in while loop
+
+### call ```wait()``` 
+<img width="547" alt="image" src="https://user-images.githubusercontent.com/74788199/223225619-0502b114-ef2d-40e2-836b-1c085821f0d2.png">
+- When thread t calls ...
+- t releases object lock
+- t’s state = BLOCKED 
+- t placed in wait set 
