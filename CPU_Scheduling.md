@@ -1,13 +1,13 @@
 # CPU Scheduling
 
-The program counter (PC) is typically incremented by 4:<br>
-Because it is the size of a typical instruction word in memory.
+- **One processor -> one process running at a time** (Often running process doesn't need CPU *e.g., I/O requests*)
+- **Multiprogramming goal: avoid CPU idle times -> some process is using the CPU all the time**
+<img width="813" alt="Pasted Graphic 1" src="https://user-images.githubusercontent.com/74788199/224523734-03628289-9f0f-4165-b89d-7782ebb3807c.png">
 
 ### When Does the Scheduler Get Invoked?
 1. When there’s a timer interrupt (running process has exceeded its time share)
 2. When running process terminates
 3. When running process issues an I/O request (block)
-<img width="813" alt="Pasted Graphic 1" src="https://user-images.githubusercontent.com/74788199/224523734-03628289-9f0f-4165-b89d-7782ebb3807c.png">
 
 ### Two Types of Scheduling
 - **Non-Preemptive:** processes only give up CPU voluntarily (2,3 above)
