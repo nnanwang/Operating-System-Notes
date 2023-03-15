@@ -13,7 +13,7 @@
 Programs are I/O bound more often than they are CPU bound<br>
 ![image](https://user-images.githubusercontent.com/74788199/225171795-627d30db-3e26-4b30-831f-27ddb4f5bcd1.png)
 - **CPU-Bound** <br> - Highly dependent on the CPU <br> - Most times, the processor is the only component being used for excution <br> - Tend to have few and long CPU burst <br> ![image](https://user-images.githubusercontent.com/74788199/225171987-f239b223-d231-48a6-b6d8-857356e262e2.png) 
-- **I/O-Bound** <br> - dependent on the input-output system and its resources *(e,g., disk drives and peroheral devices)* <br>![image](https://user-images.githubusercontent.com/74788199/225188565-ccb7eb0e-2cee-4f91-831a-be6982b4f578.png)
+- **I/O-Bound** <br> - dependent on the input-output system and its resources *(e,g., disk drives and peroheral devices)* <br> - I/O bound operations are characterized by many and fewer CPU bursts <br>![image](https://user-images.githubusercontent.com/74788199/225188565-ccb7eb0e-2cee-4f91-831a-be6982b4f578.png)
 
 |               | Advantages |  Disadvantages | 
 | ------------- | ----------- |  ----------- |
