@@ -23,63 +23,58 @@ Programs are I/O bound more often than they are CPU bound<br>
 ## Scheduling Metrics
 How to measure effectiveness of Scheduling Policies?
 - **CPU Utilization** - percentage of time that CPU is doing useful work *(good = high)*
-- **Throughput** - Number of processes that complete execution per time unit *(good = high)* <br> Throughput = **n** *(number of processes)* **/ time
+- **Throughput** - Number of processes that complete execution per time unit *(good = high)* <br> Throughput = **n** *(processes completed)* **/ time unit**
+- **Turnaround Time** - Amount of time to execute a particular process, include time in ready and waiting queues. *(good = low)* <br>  **Turnaround time = Burst time + Waiting time** or **Turnaround time = Completion time – Arrival time**
+- **Waiting time** - Average time process spends in Ready Queue *(good = low)*
+- **Response Time** - Average time before process produce first response after request *(good = low)*
 
 ### Two Types of Scheduling
 - **Non-Preemptive:** processes only give up CPU voluntarily (2,3 above)
 - **Preemptive:** processes also may be preempted by timer interrupt (1,2,3 above)
 
 ## Scheduling Policies
-### 1. FCFS (first come first served) 
-Non-preemptive<br>
-<img width="632" alt="image" src="https://user-images.githubusercontent.com/74788199/218562494-fdda8185-8bee-4f7a-ab57-550d53301142.png"> <img width="752" alt="image" src="https://user-images.githubusercontent.com/74788199/218562669-b3096784-f53b-4af5-87ba-fef65b317384.png">
-**Advantages**
-- Easy to implement (ready queue = scheduling queue)
-- No starvation
+### 1. FCFS *(first come first served)* - Non-preemptive<br>
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/74788199/218562669-b3096784-f53b-4af5-87ba-fef65b317384.png">
 
-**Disadvantages**
-- Convoy Effect: Order of arrival determines performance
+| **Advantages** |  **Disadvantages** | 
+| -------------- |  ----------------- |
+| - Easy to implement (ready queue = scheduling queue) <br> - No starvation |  Convoy Effect: Order of arrival determines performance |
 
 ### 2. SJF (shortest job first) 
-a) Non-preemptive and b) Preemptive
-<img width="719" alt="image" src="https://user-images.githubusercontent.com/74788199/218563313-a0357bf0-8a1a-43c9-a676-257f112a3688.png">
-<img width="681" alt="image" src="https://user-images.githubusercontent.com/74788199/218563480-dfcc29a0-bcab-4148-8518-1827a169f717.png">
-- Issue: <br>Predicting how much is next CPU burst
+- **Non-preemptive** <br> <img width="550" alt="image" src="https://user-images.githubusercontent.com/74788199/225339815-b054eb6c-aebd-4354-8ff7-3042893d3c98.png"> <br> <img width="550" alt="image" src="https://user-images.githubusercontent.com/74788199/225343212-7c9f1e4b-bac2-4174-a74d-74ee0ce6322c.png"> 
+
+- **Preemptive** <br> <img width="550" alt="image" src="https://user-images.githubusercontent.com/74788199/225341540-7dc77efc-d948-4ad8-84b7-e83cb9c11c94.png">
+
+**Summary**
+- Issue: Predicting how much is next CPU burst
 - Exponential Averaging
 - Uses “history” of previous CPU bursts
-- Predict length of next CPU burst <br> <img width="529" alt="image" src="https://user-images.githubusercontent.com/74788199/218564774-d9b13ecd-626a-49b8-9734-d4697de10dee.png"> <br> <img width="320" alt="image" src="https://user-images.githubusercontent.com/74788199/218564823-3581b757-15f4-4049-aff6-379ed979492f.png">
+- Predict length of next CPU burst <br> <img width="550" alt="image" src="https://user-images.githubusercontent.com/74788199/218564774-d9b13ecd-626a-49b8-9734-d4697de10dee.png"> <br> <img width="550" alt="image" src="https://user-images.githubusercontent.com/74788199/218564823-3581b757-15f4-4049-aff6-379ed979492f.png">
 
-**Advantages** <br> Approximates optimal schedule for
-- Average wait time
-- Average turnaround time
-
-**Disadvantages**
-- Starves processes with expected long CPU bursts
+| **Advantages** |  **Disadvantages** | 
+| -------------- |  ----------------- |
+| Approximates optimal schedule for: <br> - Average wait time <br> - Average turnaround time |  Starves processes with expected long CPU bursts |
 
 ### 3. Priority Scheduling 
-a) Non-preemptive and b) Preemptive<br>
-**Advantages:**
-- Reflects relative importance of processes (e.g.: kernel > user)
+- **Non-preemptive** <br> - CPU Allocated to Process With Highest Priority <br> - Whenever running process blocks or terminates
+- **Preemptive** <br> - CPU Allocated to Process With Highest Priority <br> - Whenever new process arrives or running process blocks or terminates
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/74788199/225350258-201d54b4-fe17-476c-aafe-6811e9abbb37.png">
 
-**Disadvantages**
-- How is priority determined?
-- Turnaround, wait times, process burst length ignored
-- Starvation of low-priority processes <br> Can counter with “aging” (process gets increasing priority the more it waits)
+| **Advantages** |  **Disadvantages** | 
+| -------------- |  ----------------- |
+| Reflects relative importance of processes *(e.g.: kernel > user)* |  - How is priority determined? <br> - Turnaround, wait times, process burst length ignored <br>- Starvation of low-priority processes *(Can counter with “aging” (process gets increasing priority the more it waits))* |
 
-### 4. Round-Robin  
-Each process gets small unit of CPU time (time quantum).  <br>
-Preemptive: Process switch based on timer interrupts
-<img width="737" alt="image" src="https://user-images.githubusercontent.com/74788199/218567633-cbc69776-0fc7-424a-87f2-e1b32ee628c8.png">
-
-**Advantages**
+### 4. Round-Robin - Preemtive
+- Each process gets small unit of CPU time (time quantum). 
+- Preemptive: Process switch based on timer interrupts
 - Fairness
-- Response time
-- Simple
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/74788199/218567633-cbc69776-0fc7-424a-87f2-e1b32ee628c8.png">
 
-**Disadvantages**
-- Turnaround time
-- Cost of context switches (Must choose quantum carefully)
-<img width="721" alt="image" src="https://user-images.githubusercontent.com/74788199/218568169-d2638782-6876-40be-bd1b-5f3574185f43.png">
+| **Advantages** |  **Disadvantages** | 
+| -------------- |  ----------------- |
+| - Fairness <br> - Response time <br> - Simple |  - Turnaround time <br> - Cost of context switches (Must choose quantum carefully) |
+
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/74788199/218568169-d2638782-6876-40be-bd1b-5f3574185f43.png">
 
 ### 4. Multilevel Queues, Lottery 
 Preemptive <br>
