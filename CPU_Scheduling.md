@@ -81,14 +81,13 @@ How to measure effectiveness of Scheduling Policies?
 - Requires Interqueue Scheduling Too (Scheduling of Queues)
 <img width="712" alt="image" src="https://user-images.githubusercontent.com/74788199/218569455-4ba2b43c-7cb5-4eff-afe7-a49455b42a17.png">
 
-**MFQ Scheduler Must Have Following Parameters:**
+**MFQ** *(Multilevel Feedback Queue)* **Scheduler Must Have Following Parameters:**
 1. Number of queues
 2. Scheduling algorithms for each queue
 3. Scheduling algorithm between queues (or CPU time-slices)
 4. Upgrade process (e.g.: Aging)
 5. Downgrade process
 6. Initial queue determination process
-
 
 **Observe**
 1. Average turnaround time: 3100 / 6 = 516.7
