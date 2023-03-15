@@ -9,7 +9,7 @@
 2. When running process terminates
 3. When running process issues an I/O request (block)
 
-### CPU–I/O Burst Cycle
+## CPU–I/O Burst Cycle
 Programs are I/O bound more often than they are CPU bound<br>
 ![image](https://user-images.githubusercontent.com/74788199/225171795-627d30db-3e26-4b30-831f-27ddb4f5bcd1.png)
 - **CPU-Bound** <br> - Highly dependent on the CPU <br> - Most times, the processor is the only component being used for excution <br> - Tend to have few and long CPU burst <br> ![image](https://user-images.githubusercontent.com/74788199/225171987-f239b223-d231-48a6-b6d8-857356e262e2.png) 
