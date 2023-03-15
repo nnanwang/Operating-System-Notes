@@ -76,10 +76,9 @@ How to measure effectiveness of Scheduling Policies?
 
 <img width="550" alt="image" src="https://user-images.githubusercontent.com/74788199/218568169-d2638782-6876-40be-bd1b-5f3574185f43.png">
 
-### 4. Multilevel Queues, Lottery 
-Preemptive <br>
-Ready queue is partitioned into separate queues, each with own scheduling
-algorithm
+### 5. Multilevel Queues, Lottery 
+- Ready queue is partitioned into separate queues, each with own scheduling algorithm
+- Requires Interqueue Scheduling Too (Scheduling of Queues)
 <img width="712" alt="image" src="https://user-images.githubusercontent.com/74788199/218569455-4ba2b43c-7cb5-4eff-afe7-a49455b42a17.png">
 
 **MFQ Scheduler Must Have Following Parameters:**
