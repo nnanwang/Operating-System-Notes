@@ -9,6 +9,22 @@
 2. When running process terminates
 3. When running process issues an I/O request (block)
 
+### CPU–I/O Burst Cycle
+Programs are I/O bound more often than they are CPU bound<br>
+![image](https://user-images.githubusercontent.com/74788199/225171795-627d30db-3e26-4b30-831f-27ddb4f5bcd1.png)
+- **CPU-Bound** <br> - Highly dependent on the CPU <br> - Most times, the processor is the only component being used for excution <br> - Tend to have few and long CPU burst <br> ![image](https://user-images.githubusercontent.com/74788199/225171987-f239b223-d231-48a6-b6d8-857356e262e2.png) 
+- **I/O-Bound** <br> - dependent on the input-output system and its resources *(e,g., disk drives and peroheral devices)* <br>![image](https://user-images.githubusercontent.com/74788199/225188565-ccb7eb0e-2cee-4f91-831a-be6982b4f578.png)
+
+|               | Advantages |  Disadvantages | 
+| ------------- | ----------- |  ----------- |
+| CPU-Bust      | The use of CUP results in **faster processing** of task or programs       | 1. **waste of recourcesthe** - use of the processing unit alone results in other system componnents being idle <br> 2. **Incresing CPU power**      |
+| I/O-Bust      | Due to the short CPU bursts, they're assigned higher priority during scheduling to ensure system resources better used        | 1. **Slower than CPU-bound programs**<br> 2. Due to the use of input-output system, **the time spent warting for data to be read or written can be substantial.**         |
+
+## Scheduling Metrics
+How to measure effectiveness of Scheduling Policies?
+- **CPU Utilization** - percentage of time that CPU is doing useful work *(good = high)*
+- **Throughput** - Number of processes that complete execution per time unit *(good = high)* <br> Throughput = **n** *(number of processes)* **/ time
+
 ### Two Types of Scheduling
 - **Non-Preemptive:** processes only give up CPU voluntarily (2,3 above)
 - **Preemptive:** processes also may be preempted by timer interrupt (1,2,3 above)
