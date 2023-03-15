@@ -17,8 +17,8 @@ Programs are I/O bound more often than they are CPU bound<br>
 
 |               | Advantages |  Disadvantages | 
 | ------------- | ----------- |  ----------- |
-| CPU-Bust      | The use of CUP results in **faster processing** of task or programs       | 1. **waste of recourcesthe** - use of the processing unit alone results in other system componnents being idle <br> 2. **Incresing CPU power**      |
-| I/O-Bust      | Due to the short CPU bursts, they're assigned higher priority during scheduling to ensure system resources better used        | 1. **Slower than CPU-bound programs**<br> 2. Due to the use of input-output system, **the time spent warting for data to be read or written can be substantial.**         |
+| **CPU-Bust**      | The use of CUP results in **faster processing** of task or programs       | 1. **waste of recourcesthe** - use of the processing unit alone results in other system componnents being idle <br> 2. **Incresing CPU power**      |
+| **I/O-Bust**      | Due to the short CPU bursts, they're assigned higher priority during scheduling to ensure system resources better used        | 1. **Slower than CPU-bound programs**<br> 2. Due to the use of input-output system, **the time spent warting for data to be read or written can be substantial.**         |
 
 ## Scheduling Metrics
 How to measure effectiveness of Scheduling Policies?
