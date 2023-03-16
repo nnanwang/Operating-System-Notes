@@ -97,8 +97,19 @@ How to measure effectiveness of Scheduling Policies?
 
 <img width="773" alt="image" src="https://user-images.githubusercontent.com/74788199/218570960-84ad686f-91bf-44ba-a832-bf5cb4e76e12.png">
 
+## Real-Time Scheduling
+### 1. Hard Real-Time *(Must complete by some deadline)*
+can be integrated into MFQ’s
+- Determine “feasible” processes (deadline – now 3 burst)
+- Re-determine at every context switch
+- Choose process with min value of [deadline – (now + burst)]
+![image](https://user-images.githubusercontent.com/74788199/225477175-465479ea-3891-40fd-bf8f-582162d966b5.png)
 
-
+### 2. Soft Real-Time *(Should complete by some deadline)*
+requires dedicated scheduler
+**Can be integrated into priority-based scheduler** *(e.g.: MFQ’s)*
+- should not be demoted
+- requires strict time-slices
 
 
 
