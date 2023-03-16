@@ -128,11 +128,95 @@ TS (i) =
 Can be used to implement "locking" <br><br>
 ![image](https://user-images.githubusercontent.com/74788199/225666932-1197b3a5-6fd2-44d6-be83-b379a156b31d.png)
 
+**During Entry Code:**<br>
+1. if ```lock == FALSE``` <br> - TS sets lock to ```TRUE``` & returns ```FALSE``` <br> - Threads enters critical section without waiting
+2. if ```locl == TRUE``` <br> - TS sets lock to ```TRUE``` & returns ```TRUE``` <br> -Threads continues to loop in the entry code
 
+![image](https://user-images.githubusercontent.com/74788199/225714671-27cef196-67be-4047-a3b5-e6292d4ec429.png)
 
+**Test-and-Set helps (works for n threads) but ...**<br>
+- **Limited** <br> - Easy to use for critical sections <br> - Not easy to use for other synchronization problems
+- **Wasteful busy-waiting:** <br> - thread waiting for lock must loop ```while (ts(lock) == TRUE) skip;``` <br> - can avoid busy waiting but code is complex
+- **can be really expensive on multi cores** <br> memory access, adds bus traffic...
 
+## 3. Semaphores
+Data Structure consisting of lock with wait queue
 
+```init (n)```: *n* = # of threads allowed access to resource at a time
+```aquire ()```: thread code calls to gain access
+```release ()```: thread code calls to relinquish access 
+### Variations:
+1. **Binary semaphore** <br> one thread can hold lock at a time *(n=1)*, good for critical sections
+2. **Counting semaphore:** <br> *n* threads can hold lock at a time *(good for other synchronization problems)*
 
+**Definition: The semaphore is an integer variable that is implemented with thread safe operations.**
+### Possible State:
+1. Unlocked: <br> ![image](https://user-images.githubusercontent.com/74788199/225721682-55675d72-4d49-44d1-8ff2-53205bc30438.png)
+2. Locked by *t* with wait queue <br> ![image](https://user-images.githubusercontent.com/74788199/225721809-58720f0f-a518-4b19-8fb0-512783cabce1.png) <br><br> Empty wait queue <br> ![image](https://user-images.githubusercontent.com/74788199/225722007-58c27d30-253a-4e51-a561-c2198ad5d712.png)
 
+### Operations and States
+![image](https://user-images.githubusercontent.com/74788199/225722469-ccfb58a9-f169-4cf5-81ea-02ecfb69ef11.png)
 
+### Binary Semaphores & Critical Sections
+```
+shared binary semaphore S;
+// initialized to 1
+while (TRUE) {
+    acquire (S);
+    <critical section>
+release (S);
+    <non-critical section>
+}
+```
+**A Possible Trace With 3 Threads** <br>
+![image](https://user-images.githubusercontent.com/74788199/225724275-a0e376a9-4d87-4457-be14-ad7ae88b228f.png)
+
+#### Data Structure w/ Variables
+- ```cnt```: integer counter (initialized in constructor)
+- ```Q```: queue of threads
+#### Meaning of ```cnt```:
+- ```cnt = 1```: unlocked
+- ```cnt <= 0```: locked, with |cnt| waiting threads
+#### Implementation
+```
+init()
+  cnt := 1;
+```
+
+```
+acquire ()
+  cnt--
+if (cnt < 0)
+    add calling thread to Q
+    block calling thread
+
+```
+
+```
+release ()
+  cnt++
+if (cnt <= 0) {
+     remove a thread t from Q
+     wakeup (t) // moves t to ready queue
+}
+```
+![image](https://user-images.githubusercontent.com/74788199/225729302-2746b60c-ac26-4222-9030-97871e73392d.png)
+
+#### Why so mush simpler than Peterson's algorithm?
+- **devil is in the details** - must ensure that no two threads can execute acquire, release on same semaphore at the same time *(share counter, cnt)*
+- **C/S Problem moved to semaphore implementation!** 
+
+## Summary: Critacal Sections
+Thread code:
+```
+while (TRUE) {
+    entry code
+<critical section> exit code <non-critical section>
+}
+```
+
+| **Solution**   | **Clever Algorithms**       | **Interrupts**     | **Test-and-Set**   | **Semaphores** |
+| ----------- | ----------- | ----------- | ----------- | ------------- |
+| **entry code**    | ```WHILE (flags) SKIP; ```<br>```set flags``` | disable interrupts | ```WHILE (ts (lock)) SKIP;```| ```acquire (s)```  |
+| **exit code**    | ```clear flags``` | enable interrupts | ```lock := FALSE```| ```release(s)```  |
 
