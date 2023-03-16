@@ -45,7 +45,7 @@ lock :: acquire()
 lock :: release()
 // unlock, waking up waiter if any
 ```
-Both ```acquire``` and ```release``` must be **atomic**
+Both ```acquire``` and ```release``` must be **atomic** <br>
 ![image](https://user-images.githubusercontent.com/74788199/225489906-3bfd965c-d603-4371-8146-95600691178d.png)
 - Simple code
 - Same code for all threads
@@ -95,7 +95,7 @@ Threads take turns, but a thread skips its turn if it’s not interested and ano
 - thread B gets accessto C/S ```if(flag0 == FALSE) or (turn == 1)```
 
 **Mutual Exclusion? Yes!** <br>
-**Progress? Yes!**
+**Progress? Yes!**<br>
 **Bounded Wait? Yes!** - if one thread waiting, need only wait until other thread sets value of turn
 
 ### Summary: Aproaches to Solve C/S
@@ -106,8 +106,8 @@ Threads take turns, but a thread skips its turn if it’s not interested and ano
 | **Peterson’s Algorithm**  | Combines above 2. <br> Thread enters C/S when its turn, or thread whose turn it is, is not interested | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
 ## Better Way to Solving C/S
-## Hardware solutions
-### a. Disabling interrupts
+## 2. Hardware solutions
+### 2.1. Disabling interrupts
 Threads code works as follows:
 
 ![image](https://user-images.githubusercontent.com/74788199/225663734-fb8e5ada-3312-476c-8cd3-9a94aa11d495.png)
@@ -116,7 +116,7 @@ Threads code works as follows:
 | -------------  | -----------------  |
 | **Easy to see that it works**    | **1. Overkill** <br>  a. Disables all interuppts *(e.g.: I/O)* <br>  b. Disallows concurrency with threads in non-criticle sections <br><br> **2. Doesn't work for multicore systems** <br> *Each CPU has own interrupts: threads on different CPU’s can access their critical sections at same time* |
 
-### b. Test-and-Set (TS) Addtional synchronization AL primitives
+### 2.2. Test-and-Set (TS) Addtional synchronization AL primitives
 New AL instructions (Atomic)
 ```
 TS (i) =
