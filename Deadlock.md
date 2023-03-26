@@ -1,4 +1,6 @@
 # Deadlock
+![image](https://user-images.githubusercontent.com/74788199/227751431-78e158c5-5ff4-49cd-b41e-6b32fd3a732c.png)
+
 **occurs when 4 conditions hold:**
 - Mutual exclusion
 - Circular wait
