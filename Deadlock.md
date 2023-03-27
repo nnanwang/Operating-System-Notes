@@ -31,3 +31,27 @@
 | **Hold and Wait**| Request all resources at start. Proceed if granted (dp-lock) |
 | **No Preemption** | If request denied, release all resources being held (trylock() |
 | **Circular Wait** | |
+
+## Deadlock Detection
+
+**Cost: O (mn^2)**
+- n = number of processes
+- m = number of resources
+
+## Deadlock Recovery
+### Once Deadlock Discovered 
+Processes need to be terminated
+### Messy process:
+- Kill all deadlocked processes
+- Or, Kill 1 process at a time until deadlock cycle is eliminated
+### In what order?
+- Based on priority Based on completion percentage
+- Based on resources held
+- -Based on resources requested Interactive vs. Batch
+### How do we recover?
+- What state are we left with?
+- Very messy. Often impractical
+
+
+
+
