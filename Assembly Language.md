@@ -20,3 +20,4 @@ While R3 < R2 DO
 - **Direct Addressing Mode:** Move contents of address 21000 into R1 - ```LOAD R1, 21000```
 - **Immediate Mode:** Move the number 123 into R1 - ```LOAD R1, =123```
 - **Indirect Addressing Mode:** Look in address 7000 for an address. Look at that address, and load R1 with the whatever found at that address. - ```LOAD R1, @7000```
+
