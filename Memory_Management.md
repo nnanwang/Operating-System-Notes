@@ -140,7 +140,11 @@ Analyzing the effecttiveness of TLB
   - "hit radio" is α (hit radio = TLB hits / (TLB hits + misses)
 - **Then:**
   - Effective Access Time (EAT) is: <br> 
-    - EAT = ((1 + ε) α) + ((2 + ε)(1 - α))
+    - EAT = ((1 + ε) α) + ((2 + ε)(1 - α)) <br>
+          = α + εα + 2 - 2α + ε – εα <br>
+          = 2 + ε - α
+         
+- **EAT = 2 + ε - α** - Effectiveness of TLB depends on high hit ratio!
 
 ### 2. Segmentation:
 chunks are variably sized (logically determined)
