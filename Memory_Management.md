@@ -132,7 +132,15 @@ Every Process' Page Table:<br>
 ![image](https://user-images.githubusercontent.com/74788199/235388710-1cf7f346-30a7-40be-83fa-4a51c9571b41.png)
 
 #### Effective Access Time (EAT)
-
+Analyzing the effecttiveness of TLB
+- **Assume:** <br>
+  - associative lookup in TLB takes ε time units
+  - memory cycle time = 1 microsecond
+- **Suppose:**
+  - "hit radio" is α (hit radio = TLB hits / (TLB hits + misses)
+- **Then:**
+  - Effective Access Time (EAT) is: <br> 
+    - EAT = ((1 + ε) α) + ((2 + ε)(1 - α))
 
 ### 2. Segmentation:
 chunks are variably sized (logically determined)
