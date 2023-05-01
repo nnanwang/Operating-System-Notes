@@ -146,6 +146,7 @@ Analyzing the effecttiveness of TLB
          
 - **EAT = 2 + ε - α** - Effectiveness of TLB depends on high hit ratio!
 
+
 ### 2. Segmentation:
 chunks are variably sized (logically determined)
 
