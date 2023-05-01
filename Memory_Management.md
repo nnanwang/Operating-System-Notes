@@ -146,6 +146,27 @@ Analyzing the effecttiveness of TLB
          
 - **EAT = 2 + ε - α** - Effectiveness of TLB depends on high hit ratio!
 
+#### Issues with paging
+1. two memory accesses/logical address reference <br> Solution: TLB
+2. very large page tables
+   - consider a system with 32 bit logical addresses
+   - if frame(page) size = 4KB(2^12 bits) then... <br> 
+
+#### 2 Level Paging
+consider again, 32-bit machine with 4K page size
+1. **Single-level page table:**
+   a. Page number (20 bits)
+   b. Page offset (12 bits)
+ 
+2. **Two-level page table:**
+   a. Page number: 
+      - Outer-level master table in 1 page: 4KB/4 BYTES = 1024 PTE (10 bits)
+      - hence 1024 innner page tables, to select IP (10 bits)
+   b. Page offset (12 bits) <br>
+   
+   <img width="500" alt="image" src="https://user-images.githubusercontent.com/74788199/235501974-8eb7c303-ac22-4031-b971-601fed14dcae.png">
+
+   
 
 ### 2. Segmentation:
 chunks are variably sized (logically determined)
