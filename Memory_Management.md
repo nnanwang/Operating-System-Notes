@@ -166,18 +166,42 @@ consider again, 32-bit machine with 4K page size
    
    <img width="500" alt="image" src="https://user-images.githubusercontent.com/74788199/235501974-8eb7c303-ac22-4031-b971-601fed14dcae.png">
 
-   
 
 ### 2. Segmentation:
-chunks are variably sized (logically determined)
+Similar to paging but, partitions of logical address space/physical memory are variable, not fixed <br>
+partitions based on conceptual divisions rather than page size <br>
+<img width="559" alt="image" src="https://user-images.githubusercontent.com/74788199/235549151-39dc5973-23a9-4b14-9f8f-889d7d937e69.png">
+
+#### Logical Addresses (s, d)
+- s: segment number (index into segment table which contains limit and base address of corresponding segment)
+- d: segment offset
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/74788199/235549621-7e82d0a1-e24b-43aa-bb70-a5427a41827c.png">
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/74788199/235550356-89e342dd-4085-4d83-9870-8f914ffebd45.png">
+
+#### Advantages of Segmentation
+1. **Easier to implement protection** e.g.: Text segment should be read-only. Can add flag to segment table:
+   1. Read-only: Prevents writes to text segment
+   2. No-execute: Prevents attempts to excute entries in data segment
+   - Page can contain both code & data. (Protextion is trickier)
+
+2. **Easier to implement sharing**
+   - e.g.: same text segment can be used by multiple processes concurrently <br> <img width="400" alt="image" src="https://user-images.githubusercontent.com/74788199/235551225-3bb39fcf-b690-4f90-9677-f39734807af7.png">
+   - paging: page with code might also have data, can't share
+   - saves memory => more concurrency possible
+
+#### Advantage of Paging
+1. **Memory utilization**
+   - paging suffers from internal fragmentation but at most, 1 page/process
+   - segmentation suffers from external fragmentation which over time can make much of memory unusable
+2. **Multilevel paging allows page tables to be non-contiguous
+   - can do the same for segment tables
+   - idea: segmentation-based allocation, but every segment is paged 
 
 ### 3. Paged Segmentation:
 hybrid of 1 and 2
 
-
-
-
-4. 
+### Summary
+<img width="762" alt="image" src="https://user-images.githubusercontent.com/74788199/235552653-9417a809-efe0-41f1-af5a-71b2880b11e6.png">
 
 
 
