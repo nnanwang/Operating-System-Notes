@@ -59,6 +59,36 @@ Straightforward extension of paging
 ![image](https://user-images.githubusercontent.com/74788199/235572039-038cf5a0-e230-4fee-8ede-df56478c3434.png)
 [link="https://learn.zybooks.com/zybook/BRANDEISCOSI131APitoSalasSpring2023/chapter/10/section/2?content_resource_id=79808414"]
 
+### Page Faults
+#### Page Fault Rate: 0 <= p <= 1
+- p = 0 => no page fault
+- p = 1 => every reference is a fault
+
+#### Effective Access Time (EAT)
+EAT = (1 - p) * memory access time + p * (page fault overhead + swap page out + swap page in + restart overhead)
+<br> ![image](https://user-images.githubusercontent.com/74788199/235572514-5e3697f0-546c-4250-a6e1-e928247498fe.png)
+
+### Page Replacement
+- When no free frames available during page fault
+- Must evict a page
+#### Page replacement Algorithm
+- if page replacement not done well, swapped out page may need to be swapped in soon after
+- **Goal:** minimize number of page faults
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
