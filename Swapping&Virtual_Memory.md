@@ -75,6 +75,10 @@ EAT = (1 - p) * memory access time + p * (page fault overhead + swap page out + 
 - if page replacement not done well, swapped out page may need to be swapped in soon after
 - **Goal:** minimize number of page faults
 
+#### Policy 1: Fist-In-First-Out (FIFO)
+- Idea: Replace the page that's been in memory the longest 
+- Illustration: Assume 3 frames
+
 
 
 
