@@ -1,4 +1,6 @@
-# Disk
+# Disk & File system
+<img width="522" alt="image" src="https://user-images.githubusercontent.com/74788199/235800915-12bd9093-afdb-430f-aae3-d56fbc17ba8c.png">
+
 ## Secondary storage
 - anything out of "primary memory"
 - does not permit direct execution of instructions or data retrieval via machineload/store instructions 
