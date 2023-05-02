@@ -77,17 +77,99 @@ EAT = (1 - p) * memory access time + p * (page fault overhead + swap page out + 
 
 #### Policy 1: Fist-In-First-Out (FIFO)
 - Idea: Replace the page that's been in memory the longest 
-- Illustration: Assume 3 frames
+- Implementation: update page-timestamp for every page fault
+![image](https://user-images.githubusercontent.com/74788199/235685666-50b337e6-2f89-4751-a8e8-ea7d71e677b4.png)
 
+**+:** easy to implement, understand
+**-:** ignores page usage, Belay's Anomaly: more frames => lower hit radio
 
+#### Policy 2: Optimal
+- Idea: replace page that won't be used for the longest time
+- Implementation: consult psychic to determin future page references
+![image](https://user-images.githubusercontent.com/74788199/235689143-b7f55beb-181d-4ed9-925c-ea78f7f41678.png)
 
+**+:** 
+- achives optimal hit radio
+- basic for performance comparisons with other policies
+- basic for approximation policies (LRU, LFU)
+**-:** not implementable
 
+#### Policy 3: Least Recently Used (LRU)
+- Idea: replace page with oldest page-timestamp
+- Implematation: page-timestamp for every page in memory, update page-timestamp every time address references page
+![image](https://user-images.githubusercontent.com/74788199/235691334-fcd19a26-ff75-432e-a801-deb57f80800b.png)
 
+**+:** 
+- assumes locality to predict future page accesses
+- basic for approximation policies
+**-:** overhead: system call (time) + write for each address reference
 
+#### Policy 4: Approximations of LRU
+1. **4a. Reference Bits**
+   - add "reference bit" column to page table
+   - intitially, all bits set to 0
+   - reference to page p sets p's reference bit to 1
+   - when all bits are 1, reset all to 0
+   - when replacing, choose any page with reference bit = 0
+   
+![image](https://user-images.githubusercontent.com/74788199/235693714-f3abee40-41f5-4379-a80a-448d06cc51d8.png)
 
+2. **4b. Refrence Bitstrings**
+   - add n-bit column to page table
+   - initially, all bits strings = 00...0
+   - refrence to page p sets rightmost bit of page p's bit string to 1
+     - e.g.: 01010010 -> 01010011
+   - after fixed amount of time, shift all bit strings to the left
+     - e.g.: 01010011 -> 10100110
+     - efficient: most assembly langs have "shift left", "shift right" instructions for registers
+   - Replacement: choose page with longest suffix of 0's
 
+![image](https://user-images.githubusercontent.com/74788199/235697198-15e78771-e633-48dd-8f9e-8fbbc3e075ac.png)
+<br>
+![image](https://user-images.githubusercontent.com/74788199/235699244-919417d1-bddb-406c-88cc-fe31af4a8fd8.png)
+Slow search
 
+3. **4c. Second Chance**
+   - combine reference bit w/FIFO
+   - use FIFO, but pass on pages with reference bit = 1
 
+3. **4d. Second Chance + "modifies bit**
+   - some pages more costly to evict than others
+     - pages that have changed since read, must be written
+   - add "modified bit" column to page taable. Set to 1 when write to a page
+   - favor eviction of pages with modified bit = 0
+
+#### Policy 5: Least Frequetly Used (LFU)
+- also tries to approximate optimal
+- predicts that page that will not be accessed for longest time in future is that which has been accessed the fewest time in past
+- requires maintaining counter for all pages in page table
+![image](https://user-images.githubusercontent.com/74788199/235701810-027300bf-2005-4d56-8ef2-e06a8aa6ead6.png)
+
+**+:** reasonable approximation of optimal in some cases
+**-:**
+- requires counter field in page table
+- requires write of memory for every memory reference
+- likely to evict pages just brought into memory
+- less compatible with locality compared to LRU
+
+## Summary
+#### What if no free frames?
+Page replacement
+
+#### Goal
+keep page fault fregquency low
+
+#### Policies:
+- FIFO
+- Optimal (requires knowledge of the future)
+
+#### Approximations of Optimal
+- LRU (expensive)
+  - Reference Bits
+  - Reference Bitstring
+
+- 2nd Chance (FIFO + Reference Bit)
+- 2nd Chance + Modify Bit
 
 
 
